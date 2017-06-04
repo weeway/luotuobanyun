@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f2f2f2"
+    tools:context="com.a0x03.wythe.easytransport.Activity.PostActivity">
+
+    <LinearLayout
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="16dp"
+                android:layout_height="10dp"/>
+            <ImageButton
+                android:onClick="onToggleBack"
+                android:background="@color/white"
+                android:id="@+id/id_reg_to_log"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_back"
+                android:layout_alignParentStart="true"/>
+        </LinearLayout>
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:text="发布需求"
+            android:textColor="#e64a19"
+            android:gravity="center_vertical"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:background="#bbbbbb"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <LinearLayout
+                android:layout_alignBottom="@+id/map"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ly_height"
+                android:background="#ffffff"
+                android:layout_marginBottom="@dimen/ly_vertical_margin">
+                <LinearLayout
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"/>
+                    <ImageView
+                        android:layout_width="@dimen/iv_width"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:src="@drawable/icon_arrow_from"/>
+                    <TextView
+                        android:layout_width="@dimen/iv_width"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"/>
+
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:id="@+id/tvMyLoc"
+                        android:layout_height="@dimen/tv_height"
+                        android:layout_width="240dp"
+                        android:text="福州大学 生活三区"
+                        android:clickable="true"
+                        android:background="@color/white"/>
+                    <TextView
+                        android:gravity="center"
+                        android:text="(起点)"
+                        android:textColor="#11cd6e"
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@color/background"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <LinearLayout
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginLeft="@dimen/value_horizontal_margin"
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"/>
+                    <ImageView
+                        android:layout_width="@dimen/iv_width"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:src="@drawable/icon_arrow_to"/>
+                    <TextView
+                        android:layout_width="@dimen/iv_width"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"/>
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:id="@+id/tvDest"
+                        android:layout_width="240dp"
+                        android:layout_height="@dimen/tv_height"
+                        android:text="去哪儿..."
+                        android:clickable="true"
+                        android:background="@color/white"/>
+                    <TextView
+                        android:gravity="center"
+                        android:text="(终点)"
+                        android:textColor="#eb4f38"
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp">
+                    <TextView
+                        android:gravity="center"
+                        android:text="发起人：    "
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent" />
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:id="@+id/tv_post_name"
+                        android:gravity="center_vertical"
+                        android:text="vincent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <View
+                    android:background="#f2f2f2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <LinearLayout
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp">
+                    <TextView
+                        android:gravity="center"
+                        android:text="联系电话："
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent" />
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:id="@+id/tv_post_phone"
+                        android:gravity="center_vertical"
+                        android:text="15659377591"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <LinearLayout
+                android:onClick="onPickTime"
+                android:clickable="true"
+                android:id="@+id/id_select_time"
+                android:background="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="42dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="日期选择："
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"/>
+                <!--<TextView-->
+                <!--android:text="07"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:layout_width="20dp"-->
+                <!--android:layout_height="match_parent" />-->
+                <!--<TextView-->
+                <!--android:text="月/"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:layout_width="26dp"-->
+                <!--android:layout_height="match_parent" />-->
+                <!--<TextView-->
+                <!--android:text="07"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:layout_width="20dp"-->
+                <!--android:layout_height="match_parent" />-->
+                <!--<TextView-->
+                <!--android:text="日/"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:layout_width="26dp"-->
+                <!--android:layout_height="match_parent" />-->
+                <TextView
+                    android:id="@+id/tv_post_date"
+                    android:text="2016/08/02  13:00"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <!--<TextView-->
+                <!--android:text="时"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:layout_width="26dp"-->
+                <!--android:layout_height="match_parent" />-->
+            </LinearLayout>
+            <View
+                android:background="#f2f2f2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <LinearLayout
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="42dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="车型：        "
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+               <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spin_truck_type"
+                    android:spinnerMode="dialog"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="32dp">
+
+                </android.support.v7.widget.AppCompatSpinner>
+            </LinearLayout>
+            <LinearLayout
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="42dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="货车规格："
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+                <android.support.v7.widget.AppCompatSpinner
+                    android:layout_gravity="center"
+                    android:spinnerMode="dialog"
+                    android:id="@+id/spin_truck_spec_len"
+                    android:layout_width="80dp"
+                    android:layout_height="32dp">
+
+                </android.support.v7.widget.AppCompatSpinner>
+                <TextView
+                        android:text="米"
+                        android:gravity="center_vertical"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent" />
+                <android.support.v7.widget.AppCompatSpinner
+                    android:layout_gravity="center"
+                    android:spinnerMode="dialog"
+                    android:id="@+id/spin_truck_spec_weight"
+                    android:layout_width="80dp"
+                    android:layout_height="32dp">
+
+                </android.support.v7.widget.AppCompatSpinner>
+                <TextView
+                        android:text="吨"
+                        android:gravity="center_vertical"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent" />
+                <android.support.v7.widget.AppCompatSpinner
+                    android:layout_gravity="center"
+                    android:spinnerMode="dialog"
+                    android:id="@+id/spin_truck_specification"
+                    android:layout_width="80dp"
+                    android:layout_height="32dp">
+
+                </android.support.v7.widget.AppCompatSpinner>
+                <TextView
+                        android:text="米"
+                        android:gravity="center_vertical"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="42dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="货物类型："
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spin_goods_type"
+                        android:spinnerMode="dialog"
+                        android:layout_width="100dp"
+                        android:layout_height="32dp">
+
+                    </android.support.v7.widget.AppCompatSpinner>
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="货物规格："
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp">
+                        <TextView
+                            android:gravity="bottom"
+                            android:text="总重量"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent" />
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"/>
+                        <EditText
+                            android:id="@+id/edv_post_goods_wei"
+                            android:gravity="bottom"
+                            android:layout_width="120dp"
+                            android:layout_height="38dp"
+                            android:textColor="#555555"
+                            android:textColorHint="#999999"
+                            android:hint="1-10000"
+                            android:background="@null"
+                            android:drawableBottom="@drawable/et_focus_change"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:text="千克"
+                            android:gravity="bottom"
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"/>
+                    <LinearLayout
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp">
+                        <TextView
+                            android:gravity="top"
+                            android:text="总体积"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent" />
+                        <EditText
+                            android:id="@+id/edv_post_goods_vol"
+                            android:gravity="top"
+                            android:layout_width="120dp"
+                            android:layout_height="38dp"
+                            android:textColor="#555555"
+                            android:textColorHint="#999999"
+                            android:hint="1-200"
+                            android:background="@null"
+                            android:drawableBottom="@drawable/et_focus_change"
+                            android:textSize="16sp"/>
+                        <TextView
+                            android:text="方"
+                            android:gravity="top"
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:background="#f2f2f2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <LinearLayout
+                android:background="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="42dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="是否需要装卸:"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent" />
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"/>
+                <RadioGroup
+                    android:id="@+id/radio_select_upload"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <RadioButton
+                        android:id="@+id/radio_yes"
+                        android:text="是"
+                        style="@style/CustomRadioButtonTheme"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent" />
+                    <RadioButton
+                        android:id="@+id/radio_no"
+                        android:text="否"
+                        style="@style/CustomRadioButtonTheme"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent" />
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <LinearLayout
+                android:background="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="42dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="价格预估："
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent" />
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:id="@+id/tv_post_cost"
+                    android:gravity="center_vertical"
+                    android:text="约100~180元"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <View
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+            <Button
+                android:onClick="onSend"
+                android:textColor="#ffffff"
+                android:text="立即发布"
+                android:background="@drawable/login_button_shape"
+                android:layout_width="160dp"
+                android:layout_height="42dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

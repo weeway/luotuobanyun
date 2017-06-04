@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_main"
+    >
+
+
+        <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_width="@dimen/ly_width"
+        android:layout_height="@dimen/ly_height"
+        android:background="@color/background"
+        android:layout_marginBottom="@dimen/ly_vertical_margin">
+        <LinearLayout
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="@dimen/value_horizontal_margin"
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+            <ImageView
+                android:layout_width="@dimen/iv_width"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:src="@drawable/departure_stop_icon"/>
+            <TextView
+                android:layout_width="@dimen/iv_width"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_marginRight="@dimen/value_horizontal_margin"
+                android:id="@+id/tvMyLoc"
+                android:layout_height="@dimen/tv_height"
+                android:layout_width="@dimen/tv_width"
+                android:text="福州大学 生活三区"
+                android:clickable="true"
+                android:background="@color/white"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@color/background"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <LinearLayout
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="@dimen/value_horizontal_margin"
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+            <ImageView
+                android:layout_width="@dimen/iv_width"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:src="@drawable/destination_stop_icon"/>
+            <TextView
+                android:layout_width="@dimen/iv_width"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_marginRight="@dimen/value_horizontal_margin"
+                android:id="@+id/tvDest"
+                android:layout_width="@dimen/tv_width"
+                android:layout_height="@dimen/tv_height"
+                android:text="去哪儿..."
+                android:clickable="true"
+                android:background="@color/white"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

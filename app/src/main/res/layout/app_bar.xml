@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background_light_gray"
+    tools:context=".Activity.IndentAllActivity">
+
+     <LinearLayout
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <LinearLayout
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="16dp"
+                android:layout_height="10dp"/>
+            <ImageButton
+                android:onClick="onToggleBack"
+                android:id="@+id/btn_back_to_main"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_back"
+                android:background="@color/white"
+                android:layout_alignParentStart="true"/>
+        </LinearLayout>
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:text="订单详情"
+            android:textColor="#e64a19"
+            android:gravity="center_vertical"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+   <View
+        android:background="@color/app_bar_separete_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+</RelativeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerTruckType">
+        <item>一般货车</item>
+        <item>半拖车</item>
+        <item>全拖车</item>
+        <item>砂石车</item>
+        <item>混凝土搅拌车</item>
+        <item>密斗货车</item>
+        <item>货柜车</item>
+        <item>平板卡车</item>
+    </string-array>
+
+    <string-array name="spinnerTruckSpecWei">
+        <item>5.5</item>
+        <item>7.5</item>
+        <item>8.0</item>
+        <item>8.5</item>
+        <item>9.0</item>
+        <item>9.95</item>
+        <item>10.5</item>
+        <item>11</item>
+        <item>13</item>
+        <item>l6</item>
+    </string-array>
+    <string-array name="spinnerGoodsType">
+        <item>设备</item>
+        <item>家具</item>
+        <item>建材</item>
+        <item>食品</item>
+        <item>蔬菜</item>
+        <item>生鲜</item>
+        <item>木材</item>
+        <item>家畜</item>
+        <item>电子电器</item>
+        <item>其他(请在备注中填写)</item>
+    </string-array>
+    <string-array name="spinnerTruckSpecLen">
+        <item>4.2</item>
+        <item>4.5</item>
+        <item>4.8</item>
+        <item>5.2</item>
+        <item>5.8</item>
+        <item>6.2</item>
+        <item>6.8</item>
+        <item>7.2</item>
+        <item>8.6</item>
+        <item>9.6</item>
+        <item>12</item>
+        <item>12.5</item>
+    </string-array>
+</resources>

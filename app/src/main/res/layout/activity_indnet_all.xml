@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background_light_gray"
+    tools:context=".Activity.IndentAllActivity">
+     <include
+         android:id="@+id/appbar_indent_all"
+         layout="@layout/app_bar"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content" />
+     <LinearLayout
+         android:layout_centerHorizontal="true"
+         android:orientation="horizontal"
+         android:layout_marginTop="10dp"
+         android:layout_marginBottom="10dp"
+         android:layout_below="@id/appbar_indent_all"
+         android:id="@+id/nav_indent_bar"
+         android:background="@drawable/bg_round_white_with_stroke"
+         android:layout_width="200dp"
+         android:layout_height="40dp">
+          <RadioGroup
+              android:weightSum="2"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+               <!--<RadioButton-->
+                   <!--style="@style/CustomNavigationBar"-->
+                   <!--android:text="全部订单"-->
+                   <!--android:layout_weight="1"-->
+                   <!--android:layout_height="match_parent"-->
+                   <!--android:layout_width="0dp" />-->
+               <RadioButton
+                   android:id="@+id/btn_state_OnTheWay"
+                   style="@style/CustomNavigationBar"
+                   android:text="在路上"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent"
+                   android:layout_width="0dp" />
+               <RadioButton
+                   android:id="@+id/btn_state_done"
+                   style="@style/CustomNavigationBar"
+                   android:text="已完成"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent"
+                   android:layout_width="0dp" />
+          </RadioGroup>
+     </LinearLayout>
+
+     <LinearLayout
+         android:paddingLeft="10dp"
+         android:paddingRight="10dp"
+         android:layout_below="@id/nav_indent_bar"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+     <FrameLayout
+         android:id="@+id/frag_indent_list"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"/>
+     </LinearLayout>
+</RelativeLayout>

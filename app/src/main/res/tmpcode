@@ -1,0 +1,25 @@
+ <RadioGroup
+                    android:id="@+id/radio_select_type"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <RadioButton
+                        android:id="@+id/radio_type_small"
+                        style="@style/CustomRadioButtonTheme"
+                        android:text=" 小型"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent" />
+                    <RadioButton
+                        android:id="@+id/radio_type_middle"
+                        style="@style/CustomRadioButtonTheme"
+                        android:text=" 中型"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent" />
+                    <RadioButton
+                        android:id="@+id/radio_type_large"
+                        style="@style/CustomRadioButtonTheme"
+                        android:text=" 大型"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent" />
+                </RadioGroup>

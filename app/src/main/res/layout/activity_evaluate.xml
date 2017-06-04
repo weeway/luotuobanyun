@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/layout_background_light_gray"
+    tools:context="com.a0x03.wythe.easytransport.Activity.EvaluateActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <LinearLayout
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="16dp"
+                android:layout_height="10dp"/>
+            <ImageButton
+                android:onClick="onToggleBack"
+                android:id="@+id/id_reg_to_log"
+                android:layout_width="30dp"
+                android:background="#ffffff"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_back"
+                android:layout_alignParentStart="true"/>
+        </LinearLayout>
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:text="我的订单"
+            android:textColor="#e64a19"
+            android:gravity="center_vertical"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <View
+        android:background="@color/app_bar_separete_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+         <LinearLayout
+        android:padding="@dimen/indent_list_padding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:background="@drawable/indent_evaluate_header_background"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/indent_evaluation_header">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@drawable/avatar"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <CheckBox
+                    style="@style/CustomEvaluateTheme"
+                    android:layout_width="@dimen/evaluate_icon_width"
+                    android:layout_height="16dp" />
+                <CheckBox
+                    style="@style/CustomEvaluateTheme"
+                    android:layout_width="@dimen/evaluate_icon_width"
+                    android:layout_height="16dp" />
+                <CheckBox
+                    style="@style/CustomEvaluateTheme"
+                    android:layout_width="@dimen/evaluate_icon_width"
+                    android:layout_height="16dp" />
+                <CheckBox
+                    style="@style/CustomEvaluateTheme"
+                    android:layout_width="@dimen/evaluate_icon_width"
+                    android:layout_height="16dp" />
+                <CheckBox
+                    style="@style/CustomEvaluateTheme"
+                    android:layout_width="@dimen/evaluate_icon_width"
+                    android:layout_height="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@drawable/indent_list_background"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="0.9"
+                android:layout_height="match_parent"
+                android:layout_width="0dp">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:text="已完成"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:textColor="@color/app_primary_color_light"
+                    android:gravity="center_vertical"
+                    android:text="108"
+                    android:textSize="18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:gravity="center_vertical"
+                    android:text="单"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <View
+                android:layout_weight="0.095"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <View
+                android:layout_gravity="center"
+                android:background="#bbbbbb"
+                android:layout_weight="0.01"
+                android:layout_width="0dp"
+                android:layout_height="30dp"/>
+            <View
+                android:layout_weight="0.095"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="0.9"
+                android:layout_height="match_parent"
+                android:layout_width="0dp" >
+                <TextView
+                    android:gravity="center_vertical"
+                    android:text="同市排名"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:textColor="@color/app_primary_color_light"
+                    android:gravity="center_vertical"
+                    android:text="45/256"
+                    android:textSize="18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <!--<LinearLayoutvk-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="60dp">-->
+            <!--<Button-->
+                <!--android:layout_width=""-->
+                <!--android:layout_height="" />-->
+        <!--</LinearLayout>-->
+        <GridLayout
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:rowCount="2"
+            android:columnCount="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="5dp">
+                <CheckBox
+                    android:id="@+id/chk_evaluate_label1"
+                    android:background="@drawable/evaluate_label_style"
+                    android:gravity="center"
+                    android:textColor="@color/gray_text"
+                    android:text="准时"
+                    style="@style/CustomEvaluateLabel"
+                    android:layout_width="80dp"
+                    android:layout_height="26dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="5dp">
+                <CheckBox
+                    android:id="@+id/chk_evaluate_label2"
+                    android:background="@drawable/evaluate_label_style"
+                    android:gravity="center"
+                    android:textColor="@color/gray_text"
+                    android:text="热情"
+                    style="@style/CustomEvaluateLabel"
+                    android:layout_width="80dp"
+                    android:layout_height="26dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="5dp">
+                <CheckBox
+                    android:id="@+id/chk_evaluate_label3"
+                    android:background="@drawable/evaluate_label_style"
+                    android:gravity="center"
+                    android:textColor="@color/gray_text"
+                    android:text="可靠"
+                    style="@style/CustomEvaluateLabel"
+                    android:layout_width="80dp"
+                    android:layout_height="26dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="5dp">
+                <CheckBox
+                    android:id="@+id/chk_evaluate_label4"
+                    android:background="@drawable/evaluate_label_style"
+                    android:gravity="center"
+                    android:textColor="@color/gray_text"
+                    android:text="速度快"
+                    style="@style/CustomEvaluateLabel"
+                    android:layout_width="80dp"
+                    android:layout_height="26dp" />
+            </LinearLayout>
+        </GridLayout>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"/>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="36dp">
+                <TextView
+                    android:textColor="@color/app_primary_color_light"
+                    android:textSize="22dp"
+                    android:gravity="center"
+                    android:text="服务态度"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+                <View
+                    android:layout_width="14dp"
+                    android:layout_height="@dimen/app_bar_height"/>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_attitude_1"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_attitude_2"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_attitude_3"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_attitude_4"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_attitude_5"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="36dp">
+                <TextView
+                    android:textColor="@color/app_primary_color_light"
+                    android:textSize="22dp"
+                    android:gravity="center"
+                    android:text="配送速度"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+                <View
+                    android:layout_width="14dp"
+                    android:layout_height="@dimen/app_bar_height"/>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_speed_1"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_speed_2"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_speed_3"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_speed_4"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_speed_5"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="36dp">
+                <TextView
+                    android:textColor="@color/app_primary_color_light"
+                    android:textSize="22dp"
+                    android:gravity="center"
+                    android:text="价格合理"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" />
+                <View
+                    android:layout_width="14dp"
+                    android:layout_height="@dimen/app_bar_height"/>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_price_1"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                    <CheckBox
+                        android:id='@+id/chk_evaluate_price_2'
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_price_3"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_price_4"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                    <CheckBox
+                        android:id="@+id/chk_evaluate_price_5"
+                        style="@style/CustomEvaluateBigTheme"
+                        android:layout_width="@dimen/evaluate_big_icon_width"
+                        android:layout_height="@dimen/evaluate_big_icon_height" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+         <View
+             android:layout_width="match_parent"
+             android:layout_height="10dp"/>
+        <EditText
+            android:id="@+id/edt_evaluate_comment"
+            android:gravity="top"
+            android:textColorHint="@color/gray_text"
+            android:hint="点评一下本次骆驼搬运吧！你的意见很重要哦~"
+            android:background="@drawable/bg_round_white"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+        <Button
+            android:onClick="onEvaluate"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/login_button_shape"
+            android:textColor="#fff"
+            android:text="立即评价"
+            android:layout_width="160dp"
+            android:layout_height="38dp" />
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

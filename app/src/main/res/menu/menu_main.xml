@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity.MainActivity">
+    <item android:id="@+id/add"
+        android:title="add"
+        android:orderInCategory="80"
+        android:icon="@drawable/ic_add_black_18dp"/>
+    <item android:id="@+id/notice"
+        android:title="notify"
+        android:orderInCategory="80"
+        android:icon="@drawable/ic_notifications"
+        app:showAsAction="always" />
+</menu>

@@ -1,0 +1,260 @@
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/indent_list_padding"
+        android:paddingRight="@dimen/indent_list_padding">
+        <LinearLayout
+            android:background="@drawable/indent_list_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:paddingLeft="5dp"
+                android:textColor="@color/indent_icon_text_normal"
+                android:textSize="14dp"
+                android:gravity="center_vertical"
+                android:text="@string/indent_list_title"
+                android:drawableBottom="@drawable/indent_bottom_line"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/indent_list_header_height" />
+            <LinearLayout
+                android:padding="@dimen/indent_list_padding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:text="费用："
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:layout_width="40dp"
+                        android:layout_height="@dimen/indent_list_item" />
+                    <TextView
+                        android:id="@+id/tv_indent_detail_cost"
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:gravity="center_vertical"
+                        android:text="￥156.68"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:text="车型："
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:layout_width="40dp"
+                        android:layout_height="@dimen/indent_list_item" />
+                    <TextView
+                        android:id="@+id/tv_indent_detail_cartype"
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:gravity="center_vertical"
+                        android:text="中型"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:text="司机手机："
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:layout_width="70dp"
+                        android:layout_height="@dimen/indent_list_item" />
+                    <TextView
+                        android:id="@+id/tv_indent_detail_phone"
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:gravity="center_vertical"
+                        android:text="156****7591"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/indent_list_item">
+                    <ImageView
+                        android:paddingLeft="-3dp"
+                        android:src="@drawable/icon_order_number"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:text="   订单编号:"
+                        android:gravity="center_vertical"
+                        android:layout_width="68dp"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:id="@+id/tv_indent_detail_idIndent"
+                        android:text="56321475962342"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/indent_list_item">
+                    <ImageView
+                        android:paddingLeft="-3dp"
+                        android:src="@drawable/icon_time"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:text="   出发时间:"
+                        android:gravity="center_vertical"
+                        android:layout_width="68dp"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:id="@+id/tv_indent_detail_setoutdatetime"
+                        android:text="2016/7/8   下午15:20"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/indent_list_item">
+                    <ImageView
+                        android:paddingLeft="-3dp"
+                        android:src="@drawable/icon_indent_location"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+
+                        android:textColor="@color/indent_icon_text_focused"
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:text="   (起点)"
+                        android:gravity="center_vertical"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:id="@+id/tv_indent_detail_start"
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:text="福州大学生活一区"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/indent_list_item">
+                    <ImageView
+                        android:paddingLeft="-3dp"
+                        android:src="@drawable/icon_indent_location"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:text="   (终点)"
+                        android:textColor="#eb4f38"
+                        android:gravity="center_vertical"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:id="@+id/tv_indent_detail_end"
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:text="福州大学生活三区"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:text="创建时间:"
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:layout_width="60dp"
+                        android:layout_height="@dimen/indent_list_item" />
+                    <TextView
+                        android:id="@+id/tv_indent_detail_publishdatetime"
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:gravity="center_vertical"
+                        android:text="2016/7/6  上午8:10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:text="付款时间:"
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:layout_width="60dp"
+                        android:layout_height="@dimen/indent_list_item" />
+                    <TextView
+                        android:id="@+id/tv_indent_detail_donedatetime"
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:gravity="center_vertical"
+                        android:text="2016/7/8  上午7:00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:text="支付宝交易号:"
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:layout_width="84dp"
+                        android:layout_height="@dimen/indent_list_item" />
+                    <TextView
+                        android:id="@+id/tv_indent_detail_idpayment"
+                        android:textSize="@dimen/indent_list_item_size"
+                        android:gravity="center_vertical"
+                        android:text="2016070609303507112526"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+                <View
+                    android:background="#bbbbbb"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"/>
+                <Button
+                    android:onClick="onEvaluate"
+                    android:id="@+id/btn_indent_evaluate"
+                    android:background="@drawable/btn_indent_evaluate"
+                    android:text="评价订单"
+                    android:textColor="@drawable/btn_indent_text"
+                    android:layout_gravity="end"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+        <LinearLayout
+            android:background="@drawable/indent_list_background"
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.amap.api.maps.MapView
+                    android:id="@+id/map_indent_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.a0x03.wythe.easytransport.Activity.IndentActivity"
+    android:orientation="vertical"
+    android:background="@color/layout_background_light_gray">
+       <LinearLayout
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <LinearLayout
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="16dp"
+                android:layout_height="10dp"/>
+            <ImageButton
+                android:onClick="onToggleBack"
+                android:id="@+id/id_reg_to_log"
+                android:layout_width="30dp"
+                android:background="#ffffff"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_back"
+                android:layout_alignParentStart="true"/>
+        </LinearLayout>
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:text="订单详情"
+            android:textColor="#e64a19"
+            android:gravity="center_vertical"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <View
+        android:background="@color/app_bar_separete_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:background="@color/layout_background_light_gray"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <View
+            android:background="#FF9D26"
+            android:layout_width="@dimen/indent_line_width"
+            android:layout_height="1dp"/>
+
+        <ImageView
+            android:id="@+id/img_indent_detail_status_publish"
+            android:src="@drawable/ic_indent_publish"
+            android:layout_width="@dimen/indent_icon_width_normal"
+            android:layout_height="match_parent" />
+        <View
+            android:background="#FF9D26"
+            android:layout_width="@dimen/indent_line_width"
+            android:layout_height="1dp"/>
+        <ImageView
+            android:id="@+id/img_indent_detail_status_taken"
+            android:src="@drawable/ic_indent_taken"
+            android:layout_width="@dimen/indent_icon_width_normal"
+            android:layout_height="match_parent" />
+        <View
+            android:background="#FF9D26"
+            android:layout_width="@dimen/indent_line_width"
+            android:layout_height="1dp"/>
+        <ImageView
+            android:id="@+id/img_indent_detail_status_deliver"
+            android:src="@drawable/ic_indent_deliver"
+            android:layout_width="38dp"
+            android:layout_height="match_parent" />
+        <View
+            android:background="#FF9D26"
+            android:layout_width="@dimen/indent_line_width"
+            android:layout_height="1dp"/>
+        <ImageView
+            android:id="@+id/img_indent_detail_status_done"
+            android:src="@drawable/ic_indent_done"
+            android:layout_width="@dimen/indent_icon_width_normal"
+            android:layout_height="match_parent" />
+        <View
+            android:background="#FF9D26"
+            android:layout_width="@dimen/indent_line_width"
+            android:layout_height="1dp"/>
+        <!--<ImageView-->
+            <!--android:src="@drawable/icon_indent_evaluate"-->
+            <!--android:layout_width="@dimen/indent_icon_width_focused"-->
+            <!--android:layout_height="match_parent" />-->
+        <!--<View-->
+            <!--android:background="#FF9D26"-->
+            <!--android:layout_width="@dimen/indent_line_width"-->
+            <!--android:layout_height="1dp"/>-->
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="24dp">
+        <View
+            android:layout_width="@dimen/indent_line_width"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:gravity="center_horizontal"
+            android:textColor="@color/indent_icon_text_normal"
+            android:text="下单"
+            android:layout_width="@dimen/indent_icon_width_normal"
+            android:layout_height="match_parent" />
+        <View
+            android:layout_width="@dimen/indent_line_width"
+            android:layout_height="1dp"/>
+        <TextView
+            android:gravity="center_horizontal"
+            android:textColor="@color/indent_icon_text_normal"
+            android:text="接单"
+            android:layout_width="@dimen/indent_icon_width_normal"
+            android:layout_height="match_parent" />
+        <View
+            android:layout_width="@dimen/indent_line_width"
+            android:layout_height="1dp"/>
+        <TextView
+            android:textColor="@color/indent_icon_text_normal"
+            android:gravity="center_horizontal"
+            android:text="路上"
+            android:layout_width="38dp"
+            android:layout_height="match_parent" />
+        <View
+            android:layout_width="@dimen/indent_line_width"
+            android:layout_height="1dp"/>
+        <TextView
+            android:gravity="center_horizontal"
+            android:textColor="@color/indent_icon_text_normal"
+            android:text="完成"
+            android:layout_width="@dimen/indent_icon_width_normal"
+            android:layout_height="match_parent" />
+        <View
+            android:layout_width="@dimen/indent_line_width"
+            android:layout_height="1dp"/>
+        <!--<TextView-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:textColor="@color/indent_icon_text_focused"-->
+            <!--android:text="点评"-->
+            <!--android:layout_width="@dimen/indent_icon_width_focused"-->
+            <!--android:layout_height="match_parent" />-->
+        <!--<View-->
+            <!--android:layout_width="@dimen/indent_line_width"-->
+            <!--android:layout_height="1dp"/>-->
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/detail_place"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+</LinearLayout>
