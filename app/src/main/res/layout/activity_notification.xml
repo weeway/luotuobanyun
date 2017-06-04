@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp">
+        <Button
+            android:onClick="onToggleBack"
+            android:layout_gravity="center_vertical"
+            android:layout_width="@dimen/bt_back_width"
+            android:layout_height="30dp"
+            android:background="@drawable/icon_back"/>
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:text="消息中心"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:textColor="@color/origle_tab"/>
+        <!--<CheckBox-->
+            <!--android:id="@+id/chb_notification_edit"-->
+            <!--style="@style/EditStyle"-->
+            <!--android:layout_marginLeft="220dp"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:onClick="onChkClick"-->
+            <!--android:text="编辑" />-->
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_holo_light">
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/gray_bg"/>
+    <LinearLayout
+        android:background="@color/gray_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.a0x03.wythe.easytransport.Utils.SuperSwipeRefreshLayout
+        android:id="@+id/refresh_notification"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recy_notification_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.a0x03.wythe.easytransport.Utils.SuperSwipeRefreshLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

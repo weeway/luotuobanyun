@@ -16,22 +16,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.a0x03.wythe.easytransport.API.APICustomer;
-import com.a0x03.wythe.easytransport.Activity.IndentActivity;
 import com.a0x03.wythe.easytransport.Activity.TestActivity;
 import com.a0x03.wythe.easytransport.Adapter.IndentListAdapter;
-import com.a0x03.wythe.easytransport.Adapter.IndentListItem;
-import com.a0x03.wythe.easytransport.Model.EndLoc;
 import com.a0x03.wythe.easytransport.Model.IndentList;
 import com.a0x03.wythe.easytransport.Model.Result;
-import com.a0x03.wythe.easytransport.Model.StartLoc;
 import com.a0x03.wythe.easytransport.R;
 import com.a0x03.wythe.easytransport.Utils.Data;
-import com.a0x03.wythe.easytransport.Utils.ServerInfo;
+import com.a0x03.wythe.easytransport.Utils.SERVER_INFO;
 import com.a0x03.wythe.easytransport.Utils.SuperSwipeRefreshLayout;
 
 import java.util.ArrayList;
 
-import cn.smssdk.gui.layout.Res;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -104,7 +99,7 @@ public class IndentDoneFragment extends Fragment implements
         mDataSet = new ArrayList<Result>();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ServerInfo.host)
+                .baseUrl(SERVER_INFO.host)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         APICustomer server = retrofit.create(APICustomer.class);
@@ -160,7 +155,7 @@ public class IndentDoneFragment extends Fragment implements
         mProgressBar.setVisibility(View.VISIBLE);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ServerInfo.host)
+                .baseUrl(SERVER_INFO.host)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         APICustomer server = retrofit.create(APICustomer.class);
@@ -204,7 +199,7 @@ public class IndentDoneFragment extends Fragment implements
         mFooterProgressBar.setVisibility(View.VISIBLE);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ServerInfo.host)
+                .baseUrl(SERVER_INFO.host)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         APICustomer server = retrofit.create(APICustomer.class);

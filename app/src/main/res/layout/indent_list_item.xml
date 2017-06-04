@@ -77,10 +77,12 @@
                     <TextView
                         android:textSize="@dimen/indent_list_item_size"
                         android:text="   订单编号:"
+                        android:textColor="@color/gray_text"
                         android:gravity="center_vertical"
                         android:layout_width="68dp"
                         android:layout_height="match_parent" />
                     <TextView
+                        android:textColor="@color/gray_text"
                         android:id="@+id/tv_indent_code"
                         android:textSize="@dimen/indent_list_item_size"
                         android:text="56321475962342"
@@ -97,6 +99,7 @@
                         android:layout_width="20dp"
                         android:layout_height="wrap_content" />
                     <TextView
+                        android:textColor="@color/gray_text"
                         android:textSize="@dimen/indent_list_item_size"
                         android:text="   出发时间:"
                         android:gravity="center_vertical"
@@ -105,6 +108,7 @@
                     <TextView
                         android:id="@+id/tv_indent_date"
                         android:textSize="@dimen/indent_list_item_size"
+                        android:textColor="@color/gray_text"
                         android:text="2016/7/8   下午15:20"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
@@ -121,6 +125,7 @@
                     <TextView
                         android:textColor="@color/indent_icon_text_focused"
                         android:textSize="@dimen/indent_list_item_size"
+
                         android:text="   (起点)"
                         android:gravity="center_vertical"
                         android:layout_width="50dp"
@@ -129,13 +134,14 @@
                         android:id="@+id/tv_indent_start_loc"
                         android:textSize="@dimen/indent_list_item_size"
                         android:text="福州大学生活一区"
+                        android:textColor="@color/gray_text"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="26dp">
+                    android:layout_height="30dp">
                     <ImageView
                         android:paddingLeft="-3dp"
                         android:src="@drawable/icon_indent_location"
@@ -153,6 +159,7 @@
                         android:id="@+id/tv_indent_dest"
                         android:textSize="@dimen/indent_list_item_size"
                         android:text="福州大学生活三区"
+                        android:textColor="@color/gray_text"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
@@ -174,14 +181,6 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"/>
-        <!--<Button-->
-            <!--android:id="@+id/btn_indent_delete"-->
-            <!--android:background="@drawable/btn_indent_evaluate"-->
-            <!--android:text="删除订单"-->
-            <!--android:textColor="@drawable/btn_indent_text"-->
-            <!--android:layout_gravity="end"-->
-            <!--android:layout_width="100dp"-->
-            <!--android:layout_height="30dp" />-->
         <View
             android:layout_width="wrap_content"
             android:layout_height="30dp"/>

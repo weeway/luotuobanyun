@@ -137,5 +137,11 @@ public class DestinationActivity extends Activity implements OnClickListener,Tex
 			finish();
 		}
 	}
+
+	@Override
+    protected void onStop(){
+        super.onStop();
+        this.finish();
+    }
 }
   

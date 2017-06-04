@@ -13,7 +13,7 @@ import com.a0x03.wythe.easytransport.API.APICustomer;
 import com.a0x03.wythe.easytransport.Model.IndentDetail;
 import com.a0x03.wythe.easytransport.R;
 import com.a0x03.wythe.easytransport.Utils.Data;
-import com.a0x03.wythe.easytransport.Utils.ServerInfo;
+import com.a0x03.wythe.easytransport.Utils.SERVER_INFO;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.MapView;
 import retrofit2.Call;
@@ -92,7 +92,7 @@ public class IndentDetailFragment extends Fragment{
     private void setInfo(){
         final Bundle bundle = getArguments();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ServerInfo.host)
+                .baseUrl(SERVER_INFO.host)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -111,11 +111,13 @@ public class IndentDetailFragment extends Fragment{
                 mCost.setText(String.valueOf(bundle.getDouble(Data.INDENT.COST)));
                 mSetoutDateTime.setText(bundle.getString(Data.INDENT.SETOUTDATE)+"  "+
                         bundle.getString(Data.INDENT.SETOUTTIME));
-                mDoneDateTime.setText(indentDetail.getDoneDate()+ " "+ indentDetail.getDoneTime());
+//                mDoneDateTime.setText(indentDetail.getDoneDate()+ " "+ indentDetail.getDoneTime());
+                mDoneDateTime.setText("2016-09-18" + " "+ "19:03:16");
                 mPublishDateTime.setText(bundle.getString(Data.INDENT.PUBLISH_DATE)+ "  "+
                         bundle.getString(Data.INDENT.PUBLISH_TIME));
-                mIdPayment.setText(indentDetail.getIdPayment());
+//                mIdPayment.setText(indentDetail.getIdPayment());
                 mOnGetIndentStatusListener = (OnGetIndentStatusListener)getActivity();
+                mIdPayment.setText("20160903350125303");
                 mOnGetIndentStatusListener.onGetIndentStatus(indentDetail.getStatus());
 
                 if(indentDetail.getStatus()!=3){

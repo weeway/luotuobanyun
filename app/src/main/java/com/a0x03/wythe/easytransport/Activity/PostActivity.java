@@ -22,10 +22,13 @@ import com.a0x03.wythe.easytransport.MapUtils.RouteTask;
 import com.a0x03.wythe.easytransport.Model.Succee;
 import com.a0x03.wythe.easytransport.R;
 import com.a0x03.wythe.easytransport.Utils.Data;
-import com.a0x03.wythe.easytransport.Utils.ServerInfo;
+import com.a0x03.wythe.easytransport.Utils.SERVER_INFO;
 import com.a0x03.wythe.easytransport.Utils.ToastAssistant;
 import com.github.jjobes.slidedatetimepicker.SlideDateTimeListener;
 import com.github.jjobes.slidedatetimepicker.SlideDateTimePicker;
+import com.jzxiang.pickerview.TimePickerDialog;
+import com.jzxiang.pickerview.data.Type;
+import com.jzxiang.pickerview.listener.OnDateSetListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,7 +43,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @SuppressLint("SimpleDateFormat")
 public class PostActivity extends AppCompatActivity implements
-        RadioGroup.OnCheckedChangeListener{
+        RadioGroup.OnCheckedChangeListener, OnDateSetListener{
 
     private LinearLayout mSelectTime;
     private Spinner mSpinTruckType;
@@ -58,6 +61,7 @@ public class PostActivity extends AppCompatActivity implements
     private EditText mGoodsVol;
     private SimpleDateFormat mDateFormatter = new SimpleDateFormat("yyyy/MM/dd");
     private SimpleDateFormat mTimeFormatter = new SimpleDateFormat("HH:mm");
+    SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
     private boolean flag = false;
@@ -83,32 +87,14 @@ public class PostActivity extends AppCompatActivity implements
     private String goodsType;
     private double goodsWei;
     private double goodsVol;
+    private TimePickerDialog mTimePickerDialog;
+    Long oneYear = 365 * 24 * 60 * 60 * 1000L;
 
 
     Pattern pattern = Pattern.compile("[0-9]+", Pattern.CASE_INSENSITIVE);
     Matcher matcher1;
     Matcher matcher2;
 
-    private SlideDateTimeListener mListener = new SlideDateTimeListener() {
-        @Override
-        public void onDateTimeSet(Date date)
-        {
-            flag = true;
-            mDate.setText(mDateFormatter.format(date)+"  "+mTimeFormatter.format(date));
-            setoutDate = mDateFormatter.format(date);
-            setoutTime = mTimeFormatter.format(date);
-            Log.i("publish", setoutDate);
-            Log.i("publish", setoutTime);
-        }
-
-        // Optional cancel listener
-        @Override
-        public void onDateTimeCancel()
-        {
-            Toast.makeText(PostActivity.this,
-                    "Canceled", Toast.LENGTH_SHORT).show();
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,9 +120,33 @@ public class PostActivity extends AppCompatActivity implements
         mName = (TextView) findViewById(R.id.tv_post_name);
         mPhone = (TextView) findViewById(R.id.tv_post_phone);
         mRadioGroup2.setOnCheckedChangeListener(this);
+        mTimePickerDialog = getTimePickerInstance();
 
         setInfo();
         initSpins();
+    }
+
+    private TimePickerDialog getTimePickerInstance(){
+        return new TimePickerDialog.Builder()
+                .setCallBack(this)
+                .setCancelStringId("取消")
+                .setSureStringId("确定")
+                .setTitleStringId("时间选择")
+                .setMonthText("月")
+                .setDayText("日")
+                .setHourText("时")
+                .setMinuteText("分")
+                .setCyclic(false)
+                .setMinMillseconds(System.currentTimeMillis())
+                .setMaxMillseconds(System.currentTimeMillis()
+                        + oneYear)
+                .setCurrentMillseconds(System.currentTimeMillis())
+                .setThemeColor(getResources().getColor(R.color.timepicker_dialog_bg))
+                .setType(Type.MONTH_DAY_HOUR_MIN)
+                .setWheelItemTextNormalColor(getResources().getColor(R.color.timetimepicker_default_text_color))
+                .setWheelItemTextSelectorColor(getResources().getColor(R.color.timepicker_toolbar_bg))
+                .setWheelItemTextSize(12)
+                .build();
     }
 
     private void initSpins(){
@@ -169,7 +179,7 @@ public class PostActivity extends AppCompatActivity implements
 
     private void setIndividualInfo() {
         SharedPreferences sharedPre = getSharedPreferences(Data.LOCAL_DATA, Context.MODE_PRIVATE);
-        mName.setText(sharedPre.getString("nickname",""));
+        mName.setText(sharedPre.getString("nickname","骆骆"));
         mPhone.setText(sharedPre.getString("phone",""));
     }
 
@@ -206,7 +216,7 @@ public class PostActivity extends AppCompatActivity implements
 
     private void publish(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ServerInfo.host)
+                .baseUrl(SERVER_INFO.host)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -258,7 +268,6 @@ public class PostActivity extends AppCompatActivity implements
         eLon = RouteTask.getInstance(getApplicationContext()).getEndPoint().longitude;
     }
 
-
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (checkedId){
@@ -274,17 +283,11 @@ public class PostActivity extends AppCompatActivity implements
     }
 
     public void onPickTime(View view) {
-        Date date = new Date();
-        new SlideDateTimePicker.Builder(getSupportFragmentManager())
-                .setListener(mListener)
-                .setInitialDate(date)
-                .setMinDate(date)
-                .setIs24HourTime(true)
-                .build()
-                .show();
+        mTimePickerDialog.show(getSupportFragmentManager(), "选择时间");
     }
 
-    AdapterView.OnItemSelectedListener l0 = new AdapterView.OnItemSelectedListener() {
+    AdapterView.OnItemSelectedListener l0 = new AdapterView.
+            OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             carType = getResources().getStringArray(R.array.spinnerTruckType)[position];
@@ -296,7 +299,8 @@ public class PostActivity extends AppCompatActivity implements
         }
     };
 
-    AdapterView.OnItemSelectedListener l1 = new AdapterView.OnItemSelectedListener() {
+    AdapterView.OnItemSelectedListener l1 = new AdapterView.
+            OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             carLen = Double.valueOf(getResources().getStringArray(R.array.spinnerTruckSpecLen)[position]);
@@ -308,7 +312,8 @@ public class PostActivity extends AppCompatActivity implements
         }
     };
 
-    AdapterView.OnItemSelectedListener l2 = new AdapterView.OnItemSelectedListener() {
+    AdapterView.OnItemSelectedListener l2 = new AdapterView.
+            OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             carWei = Double.valueOf(getResources().getStringArray(R.array.spinnerTruckSpecWei)[position]);
@@ -320,7 +325,8 @@ public class PostActivity extends AppCompatActivity implements
         }
     };
 
-    AdapterView.OnItemSelectedListener l3 = new AdapterView.OnItemSelectedListener() {
+    AdapterView.OnItemSelectedListener l3 = new AdapterView.
+            OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             goodsType = getResources().getStringArray(R.array.spinnerGoodsType)[position];
@@ -331,4 +337,26 @@ public class PostActivity extends AppCompatActivity implements
             goodsType = getResources().getStringArray(R.array.spinnerTruckType)[0];
         }
     };
+
+    @Override
+    public void onDateSet(TimePickerDialog timePickerView,
+                          long millseconds) {
+        Date date = toDate(millseconds);
+        flag = true;
+        mDate.setText(mDateFormatter.format(date) + "  "
+                + mTimeFormatter.format(date));
+        setoutDate = mDateFormatter.format(date);
+        setoutTime = mTimeFormatter.format(date);
+    }
+
+    public Date toDate(long time) {
+        Date d = new Date(time);
+        return d;
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        this.finish();
+    }
 }

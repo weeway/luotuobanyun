@@ -19,10 +19,13 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             app:elevation="4dp"
+
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#f0f0f0">
-            <!--android:background="?attr/colorPrimary">-->
+            app:theme="@style/AppTheme">
+
+            <!--android:background=""-->
+            <!--android:background="#f0f0f0"-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,10 +79,10 @@
             android:layout_height="6dp">
 
         </LinearLayout>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="6dp"
-            android:background="@drawable/shadow"/>
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="6dp"-->
+            <!--android:background="@drawable/shadow"/>-->
 
     </android.support.design.widget.AppBarLayout>
 
@@ -169,7 +172,7 @@
                 android:layout_height="@dimen/tv_height"
                 android:text="送到哪..."
                 android:clickable="true"
-                android:background="@color/white"/>
+                android:background="@drawable/tv_main_destination"/>
         </LinearLayout>
 
     </LinearLayout>

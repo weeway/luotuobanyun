@@ -4,9 +4,11 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <!--<item name="colorPrimary">@color/colorPrimary</item>-->
-        <item name="colorPrimary">@color/toolbar_color</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/btn_auth_accept_text_color_dark</item>
+        <!--<item name="colorPrimary">@color/toolbar_color</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/btn_auth_accept_text_color_dark</item>-->
+        <item name="colorPrimary">#f0f0f0</item>
+        <item name="colorPrimaryDark">#f0f0f0</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -48,6 +50,28 @@
         <item name="android:button">@drawable/nav_bar_style</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@drawable/nav_bar_color</item>
+    </style>
+
+    <style name="EditStyle" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/edit_style</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@drawable/nav_bar_color</item>
+    </style>
+
+    <style name="NotificationCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/notf_checkbox_style</item>
+    </style>
+
+    <style name="FullscreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
     </style>
 
 </resources>

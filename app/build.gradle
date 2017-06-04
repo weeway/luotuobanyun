@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.a0x03.wythe.easytransport"
@@ -18,8 +19,8 @@ android {
         }
     }
 }
-repositories{
-    flatDir{
+repositories {
+    flatDir {
         dirs 'libs'
     }
 }
@@ -28,6 +29,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':circleimageview')
     compile project(':slideDateTimePicker')
+    compile project(':Pushlib')
     compile files('libs/AMap_3DMap_V3.2.1_20160225.jar')
     compile files('libs/AMap_Navi_v1.7.0.2_20160311.jar')
     compile files('libs/MobCommons-2016.0303.1229.jar')
@@ -36,15 +38,19 @@ dependencies {
     compile files('libs/mpandroidchartlibrary-2-1-6.jar')
     compile files('libs/MobTools-2016.0303.1229.jar')
     compile files('libs/nineoldandroids-2.4.0.jar')
-    compile 'com.jakewharton:butterknife:5.1.1'
+    compile files('libs/umeng-analytics-v5.5.3.jar')
     compile name: 'SMSSDK-2.0.2', ext: 'aar'
     compile name: 'SMSSDKGUI-2.0.2', ext: 'aar'
     compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:cardview-v7:23.3.0'
     compile 'com.android.support:recyclerview-v7:23.3.0'
-    compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'cn.qqtheme.framework:WheelPicker:latest.release'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.android.support:design:23.3.0'
-
+    compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'com.github.ybq:Android-SpinKit:1.0.5'
+    compile 'com.android.support:support-v4:23.3.0'
+    compile 'com.jzxiang.pickerview:TimePickerDialog:1.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }

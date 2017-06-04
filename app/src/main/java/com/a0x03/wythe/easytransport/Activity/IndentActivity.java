@@ -50,4 +50,10 @@ public class IndentActivity extends AppCompatActivity {
     private void setIndentInfo(){
 
     }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        this.finish();
+    }
 }

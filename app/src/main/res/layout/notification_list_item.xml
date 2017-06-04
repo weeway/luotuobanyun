@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            style="@style/NotificationCheckBox"
+            android:visibility="gone"
+            android:id="@+id/chb_notification_delete"
+            android:layout_gravity="center"
+            android:onClick="onChkClick"
+            android:layout_marginLeft="5dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+                <ImageView
+                    android:id="@+id/iv_indent_notification"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_indent"/>
+                <TextView
+                    android:id="@+id/tv_title_notification"
+                    android:layout_marginLeft="60dp"
+                    android:text="货车司机已经接单咯！"
+                    android:layout_width="160dp"
+                    android:textColor="@color/gray_holo_dark"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/tv_time_notification"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:text="07-21  13:21"
+                    android:textColor="@color/gray_holo_dark"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_msg_notification"
+                android:layout_marginLeft="60dp"
+                android:layout_width="300dp"
+                android:layout_height="38dp"
+                android:textSize="12dp"
+                android:textColor="@color/gray_holo_dark"
+                android:text="您发布的需求订单3501252016092003，司机已接单。(点击查看详情）"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/gray_holo_light"
+        android:layout_height="1dp"/>
+    <View
+        android:background="@color/gray_bg"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+</LinearLayout>

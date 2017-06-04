@@ -390,12 +390,12 @@
             android:layout_height="10dp"/>
         <Button
             android:onClick="onEvaluate"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center_horizontal|center_vertical"
             android:background="@drawable/login_button_shape"
             android:textColor="#fff"
             android:text="立即评价"
             android:layout_width="160dp"
-            android:layout_height="38dp" />
+            android:layout_height="46dp" />
     </LinearLayout>
 
     </ScrollView>

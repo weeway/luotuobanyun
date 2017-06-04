@@ -14,18 +14,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.a0x03.wythe.easytransport.API.APICustomer;
-import com.a0x03.wythe.easytransport.Activity.IndentActivity;
 import com.a0x03.wythe.easytransport.Activity.TestActivity;
 import com.a0x03.wythe.easytransport.Adapter.IndentListAdapter;
-import com.a0x03.wythe.easytransport.Adapter.IndentListItem;
 import com.a0x03.wythe.easytransport.Model.IndentList;
 import com.a0x03.wythe.easytransport.Model.Result;
 import com.a0x03.wythe.easytransport.R;
 import com.a0x03.wythe.easytransport.Utils.Data;
-import com.a0x03.wythe.easytransport.Utils.ServerInfo;
+import com.a0x03.wythe.easytransport.Utils.SERVER_INFO;
 import com.a0x03.wythe.easytransport.Utils.SuperSwipeRefreshLayout;
 
 import java.util.ArrayList;
@@ -100,7 +97,7 @@ public class IndentOnTWFragment extends Fragment implements
         mDataSet = new ArrayList<Result>();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ServerInfo.host)
+                .baseUrl(SERVER_INFO.host)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         APICustomer server = retrofit.create(APICustomer.class);
@@ -155,7 +152,7 @@ public class IndentOnTWFragment extends Fragment implements
         mProgressBar.setVisibility(View.VISIBLE);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ServerInfo.host)
+                .baseUrl(SERVER_INFO.host)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         APICustomer server = retrofit.create(APICustomer.class);
@@ -200,7 +197,7 @@ public class IndentOnTWFragment extends Fragment implements
 
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ServerInfo.host)
+                .baseUrl(SERVER_INFO.host)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         APICustomer server = retrofit.create(APICustomer.class);

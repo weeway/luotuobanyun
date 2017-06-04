@@ -1,7 +1,6 @@
 package com.a0x03.wythe.easytransport.Activity;
 
 import android.content.Intent;
-import android.os.MessageQueue;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +13,8 @@ import com.a0x03.wythe.easytransport.API.APICustomer;
 import com.a0x03.wythe.easytransport.Model.Succee;
 import com.a0x03.wythe.easytransport.R;
 import com.a0x03.wythe.easytransport.Utils.Data;
-import com.a0x03.wythe.easytransport.Utils.ServerInfo;
+import com.a0x03.wythe.easytransport.Utils.SERVER_INFO;
+import com.a0x03.wythe.easytransport.Utils.ToastAssistant;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -225,6 +225,8 @@ public class EvaluateActivity extends AppCompatActivity implements CompoundButto
         getInfo();
         getCreditValues();
         sendEvaluation();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     private void getInfo() {
@@ -236,7 +238,7 @@ public class EvaluateActivity extends AppCompatActivity implements CompoundButto
 
     private void sendEvaluation() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ServerInfo.host)
+                .baseUrl(SERVER_INFO.host)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -253,8 +255,14 @@ public class EvaluateActivity extends AppCompatActivity implements CompoundButto
 
             @Override
             public void onFailure(Call<Succee> call, Throwable t) {
-
+                ToastAssistant.showToast(getApplicationContext(), "网络异常");
             }
         });
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        this.finish();
     }
 }

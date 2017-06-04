@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -22,16 +21,11 @@ import android.widget.Toast;
 import com.a0x03.wythe.easytransport.API.APICustomer;
 import com.a0x03.wythe.easytransport.Model.Status;
 import com.a0x03.wythe.easytransport.R;
-import com.a0x03.wythe.easytransport.Utils.CustomPost;
 import com.a0x03.wythe.easytransport.Utils.Data;
 import com.a0x03.wythe.easytransport.Utils.SMSSDKData;
-import com.a0x03.wythe.easytransport.Utils.ServerInfo;
-import org.json.JSONException;
-import org.json.JSONObject;
-import java.io.IOException;
+import com.a0x03.wythe.easytransport.Utils.SERVER_INFO;
+
 import java.util.HashMap;
-import java.util.StringTokenizer;
-import java.util.zip.GZIPOutputStream;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.OnSendMessageHandler;
@@ -139,7 +133,7 @@ public class RegisterActivity extends AppCompatActivity implements
                                     final String passwd, final String gender)
     {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ServerInfo.host)
+                .baseUrl(SERVER_INFO.host)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -266,5 +260,11 @@ public class RegisterActivity extends AppCompatActivity implements
     @Override
     public boolean onSendMessage(String s, String s1) {
         return false;
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        this.finish();
     }
 }

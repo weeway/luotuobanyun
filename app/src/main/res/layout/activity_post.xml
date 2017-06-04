@@ -257,6 +257,7 @@
                     android:layout_width="100dp"
                     android:layout_height="match_parent" />
                <android.support.v7.widget.AppCompatSpinner
+                    android:background="@drawable/tv_main_destination"
                     android:id="@+id/spin_truck_type"
                     android:spinnerMode="dialog"
                     android:layout_gravity="center"
@@ -276,6 +277,7 @@
                     android:layout_width="100dp"
                     android:layout_height="match_parent" />
                 <android.support.v7.widget.AppCompatSpinner
+                    android:background="@drawable/tv_main_destination"
                     android:layout_gravity="center"
                     android:spinnerMode="dialog"
                     android:id="@+id/spin_truck_spec_len"
@@ -289,6 +291,7 @@
                         android:layout_width="30dp"
                         android:layout_height="match_parent" />
                 <android.support.v7.widget.AppCompatSpinner
+                    android:background="@drawable/tv_main_destination"
                     android:layout_gravity="center"
                     android:spinnerMode="dialog"
                     android:id="@+id/spin_truck_spec_weight"
@@ -331,11 +334,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <android.support.v7.widget.AppCompatSpinner
+                        android:background="@drawable/tv_main_destination"
                         android:id="@+id/spin_goods_type"
                         android:spinnerMode="dialog"
                         android:layout_width="100dp"
                         android:layout_height="32dp">
-
                     </android.support.v7.widget.AppCompatSpinner>
 
                 </LinearLayout>
@@ -375,6 +378,7 @@
                             android:textColor="#555555"
                             android:textColorHint="#999999"
                             android:hint="1-10000"
+                            android:inputType="number"
                             android:background="@null"
                             android:drawableBottom="@drawable/et_focus_change"
                             android:textSize="16sp"/>
@@ -405,6 +409,7 @@
                             android:textColor="#555555"
                             android:textColorHint="#999999"
                             android:hint="1-200"
+                            android:inputType="number"
                             android:background="@null"
                             android:drawableBottom="@drawable/et_focus_change"
                             android:textSize="16sp"/>

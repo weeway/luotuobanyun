@@ -26,6 +26,7 @@ import com.a0x03.wythe.easytransport.MapUtils.RegeocodeTask;
 import com.a0x03.wythe.easytransport.MapUtils.RouteTask;
 import com.a0x03.wythe.easytransport.R;
 import com.a0x03.wythe.easytransport.Utils.BitmapUtils;
+import com.a0x03.wythe.easytransport.Utils.LocalSharedPref;
 import com.a0x03.wythe.easytransport.Utils.MapFragment;
 import com.a0x03.wythe.easytransport.Utils.Utils;
 import com.amap.api.maps.AMap;
@@ -134,6 +135,9 @@ public class MainActivity extends AppCompatActivity implements
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_notifications) {
+            Intent intent = new Intent(getApplicationContext(),
+                    NotificationActivity.class);
+            startActivity(intent);
             return true;
         }
 
@@ -148,8 +152,13 @@ public class MainActivity extends AppCompatActivity implements
 
         if (id == R.id.nav_payment) {
             // Handle the camera action
-        }else if(id == R.id.nav_indent){
-            Intent intent = new Intent(getApplicationContext(),IndentAllActivity.class);
+        }else if(id == R.id.nav_indent) {
+            Intent intent = new Intent(getApplicationContext(), IndentAllActivity.class);
+            startActivity(intent);
+        }else if(id == R.id.exit){
+            LocalSharedPref localSharedPref = LocalSharedPref.getInstance(getApplicationContext());
+            localSharedPref.setChecked(false);
+            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
             startActivity(intent);
         }
 

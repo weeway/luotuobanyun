@@ -136,6 +136,12 @@ public class VerifiyActivity extends AppCompatActivity implements
     }
 
     @Override
+    protected void onStop(){
+        super.onStop();
+        this.finish();
+    }
+
+    @Override
     public boolean onSendMessage(String s, String s1) {
         return false;
     }

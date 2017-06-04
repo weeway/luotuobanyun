@@ -105,4 +105,10 @@ public class IndentAllActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        this.finish();
+    }
 }

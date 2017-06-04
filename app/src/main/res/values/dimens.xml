@@ -70,7 +70,7 @@
     <dimen name="fab_labels_margin">8dp</dimen>
     <dimen name="indent_list_header_height">30dp</dimen>
     <dimen name="indent_list_padding">12dp</dimen>
-    <dimen name="indent_list_item">24dp</dimen>
+    <dimen name="indent_list_item">30dp</dimen>
     <dimen name="indent_list_item_size">12dp</dimen>
     <dimen name="indent_evaluation_header">120dp</dimen>
     <dimen name="evaluate_icon_width">18dp</dimen>

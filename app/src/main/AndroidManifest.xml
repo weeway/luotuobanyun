@@ -21,6 +21,7 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
      
     <application
+        android:name=".Upush.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -31,16 +32,25 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="0c9ffeb5ef8267c37b5c464cf533bb02" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="57dd61f067e58e1fc000076c"></meta-data>
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="0f0993044b17ec133a13f7a95c916c3f"></meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Umeng"></meta-data>
 
         <activity
             android:name=".Activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name="com.mob.tools.MobUIShell"
@@ -50,12 +60,13 @@
         <activity
             android:name=".Activity.LoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".Activity.RegisterActivity"
@@ -65,12 +76,32 @@
 
         <service android:name="com.amap.api.location.APSService" />
 
-        <activity android:name=".Activity.LaunchActivity" />
+        <activity android:name=".Activity.LaunchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Activity.VerifiyActivity" />
-        <activity android:name=".Activity.PostActivity" />
+        <activity android:name=".Activity.PostActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity android:name=".Activity.IndentActivity" />
         <activity android:name=".Activity.EvaluateActivity" />
         <activity android:name=".Activity.IndentAllActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".Activity.DestinationActivity" />
+        <activity android:name=".Activity.TestActivity" />
+        <activity
+            android:name=".Activity.LoadingActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_loading"
+            android:theme="@style/FullscreenTheme">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -79,8 +110,14 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".Activity.DestinationActivity" />
-        <activity android:name=".Activity.TestActivity"></activity>
+
+        <!-- 使用完全自定义消息来开启应用的服务进程的示例服务配置 -->
+        <!-- 不是必需的服务，可以根据开发者的需求进行设置 -->
+        <service android:name=".Upush.NotificationService" />
+
+        <activity android:name=".Activity.NotificationActivity">
+
+        </activity>
     </application>
 
 </manifest>

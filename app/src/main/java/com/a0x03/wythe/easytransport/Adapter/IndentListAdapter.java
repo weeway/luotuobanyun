@@ -18,7 +18,9 @@ import java.util.List;
 /**
  * Created by wythe on 2016/7/22.
  */
-public class IndentListAdapter extends RecyclerView.Adapter<IndentListAdapter.ItemHolder> implements View.OnClickListener {
+public class IndentListAdapter extends RecyclerView.
+        Adapter<IndentListAdapter.ItemHolder>
+        implements View.OnClickListener {
 
     private Context mContext;
     private List<Result> mDataSet;
@@ -77,6 +79,8 @@ public class IndentListAdapter extends RecyclerView.Adapter<IndentListAdapter.It
         holder.mDest.setText(item.getEndLoc().getAddress());
         holder.mStartLoc.setText(item.getStartLoc().getAddress());
 
+        Log.i("indent", " "+ item.getEndLoc().getAddress());
+        Log.i("indent"," "+ holder.mDest.getTextColors().toString());
         if(item.getStatus()!=3){
             holder.mImgStatus.setVisibility(View.GONE);
         }
@@ -105,7 +109,6 @@ public class IndentListAdapter extends RecyclerView.Adapter<IndentListAdapter.It
             mStartLoc = (TextView) itemView.findViewById(R.id.tv_indent_start_loc);
             mDest = (TextView) itemView.findViewById(R.id.tv_indent_dest);
             mIndentCode = (TextView) itemView.findViewById(R.id.tv_indent_code);
-//            mDeleteIndent = (Button) itemView.findViewById(R.id.btn_indent_delete);
             mImgStatus = (ImageView) itemView.findViewById(R.id.img_indent_status);
         }
     }

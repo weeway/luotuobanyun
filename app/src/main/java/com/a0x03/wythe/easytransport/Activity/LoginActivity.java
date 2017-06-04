@@ -1,28 +1,28 @@
 package com.a0x03.wythe.easytransport.Activity;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.a0x03.wythe.easytransport.API.APICustomer;
-import com.a0x03.wythe.easytransport.Model.IndentList;
 import com.a0x03.wythe.easytransport.Model.Status;
 import com.a0x03.wythe.easytransport.R;
-import com.a0x03.wythe.easytransport.Utils.CustomPost;
 import com.a0x03.wythe.easytransport.Utils.Data;
-import com.a0x03.wythe.easytransport.Utils.ServerInfo;
-import org.json.JSONException;
-import org.json.JSONObject;
-import java.io.IOException;
-import java.text.ParseException;
+import com.a0x03.wythe.easytransport.Utils.ErrorCode;
+import com.a0x03.wythe.easytransport.Utils.LocalSharedPref;
+import com.a0x03.wythe.easytransport.Utils.SERVER_INFO;
+import com.a0x03.wythe.easytransport.Utils.ToastAssistant;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,24 +38,32 @@ public class LoginActivity extends Activity implements
     private Button btLogin;
     private Button btRegister;
     private CheckBox mCheckbox;
+    ProgressDialog mProgressDialog;
 
-    //public  static String  USER_NAME;
+    Handler mHandler = new Handler(Looper.getMainLooper()){
+        @Override
+        public void handleMessage(Message inputMessage){
+            mProgressDialog.dismiss();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         initViewAndSetListener();
-        preHandleLogin();
+//        preHandleLogin();
     }
 
     private void preHandleLogin(){
-        SharedPreferences sharePref = getSharedPreferences(
-                Data.LOCAL_DATA,
-                Context.MODE_PRIVATE);
-        if(sharePref.contains("phone")
-                && sharePref.getBoolean("checked",false)) {
-            loginAsCustomer(sharePref.getString("phone",""),
-                    sharePref.getString("passwd", ""));
+        LocalSharedPref mSharedPref = LocalSharedPref.getInstance
+                (getApplicationContext());
+        if(mSharedPref.mData.contains("phone")
+                && mSharedPref.isChecked()) {
+
+            loginAsCustomer(mSharedPref.getPhone(),
+                    mSharedPref.getPasswd());
         }
     }
 
@@ -72,58 +80,68 @@ public class LoginActivity extends Activity implements
     }
 
     private void setDefaultAccount(){
-        SharedPreferences sharedPre = getSharedPreferences(Data.LOCAL_DATA,Context.MODE_PRIVATE);
-        if(sharedPre.contains("phone")){
-            etPhone.setText(sharedPre.getString("phone"," "));
-            etPwd.setText(sharedPre.getString("passwd"," "));
+        LocalSharedPref mSharedPref = LocalSharedPref.getInstance
+                (getApplicationContext());
+
+        if(mSharedPref.mData.contains("phone")){
+            etPhone.setText(mSharedPref.getPhone());
+            etPwd.setText(mSharedPref.getPasswd());
         }
     }
 
     private void loginAsCustomer(final String phone, final String passwd){
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.show(this, "", "", true, false);
+
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ServerInfo.host)
+                .baseUrl(SERVER_INFO.host)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         APICustomer server = retrofit.create(APICustomer.class);
         Call<Status> call = server.loginAsCustomer(phone, passwd);
+
         call.enqueue(new Callback<Status>() {
             @Override
-            public void onResponse(Call<Status> call, Response<Status> response) {
+            public void onResponse(Call<Status> call,
+                                   Response<Status> response) {
                 Status status = response.body();
+                switch (status.getStatus()){
+                    case ErrorCode.Succee:
+                        Message msg = Message.obtain();
+                        mHandler.dispatchMessage(msg);
+                        Intent intent = new Intent(getApplicationContext(),
+                                MainActivity.class);
+                        startActivity(intent);
+                        ToastAssistant.showToast(getApplicationContext(),
+                                "登陆成功");
+                        LocalSharedPref mSharePref = LocalSharedPref.
+                                getInstance(getApplicationContext());
+                        mSharePref.setPasswd(passwd);
+                        mSharePref.setPhone(phone);
+                        mSharePref.setChecked(mCheckbox.isChecked());
+                        break;
 
-                if(status.getStatus().equals(0)){
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                    Toast.makeText(getApplicationContext(), "登陆成功",
-                            Toast.LENGTH_SHORT)
-                            .show();
-                    SharedPreferences sharedPref = getSharedPreferences(
-                            Data.LOCAL_DATA,
-                            Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString("phone",phone);
-                    editor.putString("passwd",passwd);
-                    editor.putBoolean("checked",mCheckbox.isChecked());
-                    editor.commit();
-                }else if(status.getStatus().equals(1)){
-                    Toast.makeText(getApplicationContext(), "密码错误",
-                            Toast.LENGTH_SHORT)
-                            .show();
-                }else if(status.getStatus().equals(2)){
-                    Toast.makeText(getApplicationContext(), "账号不存在",
-                            Toast.LENGTH_SHORT)
-                            .show();
+                    case ErrorCode.PasswdIncorrect:
+                        ToastAssistant.showToast(getApplicationContext(),
+                                "密码错误");
+                        break;
+
+                    case ErrorCode.AccountInvalid:
+                        ToastAssistant.showToast(getApplicationContext(),
+                            "账号不存在");
+                        break;
                 }
             }
 
             @Override
             public void onFailure(Call<Status> call, Throwable t) {
-
+                ToastAssistant.showToast(getApplicationContext(),
+                        "网络错误");
             }
         });
     }
-
 
     @Override
     protected void onStop(){
@@ -138,6 +156,8 @@ public class LoginActivity extends Activity implements
                 String phone = etPhone.getText().toString();
                 String pwd = etPwd.getText().toString();
                 loginAsCustomer(phone, pwd);
+                InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(etPwd.getWindowToken(), 0);
                 break;
             case R.id.bt_register:
                 Intent intent = new Intent();
